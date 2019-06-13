@@ -18,9 +18,6 @@ from .custom_types import DaRnnNet, TrainData, TrainConfig
 from .utils import *
 from .constants import device
 
-logger = utils.setup_log()
-logger.info(f"Using computation device: {device}")
-
 
 def preprocess_data(dat, col_names) -> Tuple[TrainData, StandardScaler]:
     scale = StandardScaler().fit(dat)
@@ -181,10 +178,3 @@ def predict(t_net: DaRnnNet, t_dat: TrainData, train_size: int, batch_size: int,
 
     return y_pred
 
-
-with open(os.path.join("data", "da_rnn_kwargs.json"), "w") as fi:
-    json.dump(da_rnn_kwargs, fi, indent=4)
-
-joblib.dump(scaler, os.path.join("data", "scaler.pkl"))
-torch.save(model.encoder.state_dict(), os.path.join("data", "encoder.torch"))
-torch.save(model.decoder.state_dict(), os.path.join("data", "decoder.torch"))
