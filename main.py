@@ -18,6 +18,8 @@ from .custom_types import DaRnnNet, TrainData, TrainConfig
 from .utils import *
 from .constants import device
 
+logger = utils.setup_log()
+logger.info(f"Using computation device: {device}")
 
 def preprocess_data(dat, col_names) -> Tuple[TrainData, StandardScaler]:
     scale = StandardScaler().fit(dat)
