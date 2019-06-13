@@ -13,11 +13,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 
-import utils
-from modules import Encoder, Decoder
-from custom_types import DaRnnNet, TrainData, TrainConfig
-from utils import numpy_to_tvar
-from constants import device
+from .modules import Encoder, Decoder
+from .custom_types import DaRnnNet, TrainData, TrainConfig
+from .utils import *
+from .constants import device
 
 logger = utils.setup_log()
 logger.info(f"Using computation device: {device}")

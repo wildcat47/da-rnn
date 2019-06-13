@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import torch
 from torch.autograd import Variable
 
-from constants import device
+from .constants import device
 
 
 def setup_log(tag='VOC_TOPICS'):
