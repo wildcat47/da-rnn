@@ -30,11 +30,11 @@ class Encoder(nn.Module):
 
     def forward(self, input_data):
         # input_data: (batch_size, T - 1, input_size)
-        input_weighted = Variable(torch.zeros(input_data.size(0), self.T - 1, self.input_size))
-        input_encoded = Variable(torch.zeros(input_data.size(0), self.T - 1, self.hidden_size))
+        input_weighted = Variable(torch.zeros(input_data.size(0), self.T - 1, self.input_size)).cuda()
+        input_encoded = Variable(torch.zeros(input_data.size(0), self.T - 1, self.hidden_size)).cuda()
         # hidden, cell: initial states with dimension hidden_size
-        hidden = init_hidden(input_data, self.hidden_size)  # 1 * batch_size * hidden_size
-        cell = init_hidden(input_data, self.hidden_size)
+        hidden = init_hidden(input_data, self.hidden_size).cuda() # 1 * batch_size * hidden_size
+        cell = init_hidden(input_data, self.hidden_size).cuda()
 
         for t in range(self.T - 1):
             # Eqn. 8: concatenate the hidden states with each predictor
