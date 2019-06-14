@@ -97,7 +97,7 @@ def train(net: DaRnnNet, train_data: TrainData, t_cfg: TrainConfig, n_epochs=10,
                                   on_train=False)
             # TODO: make this MSE and make it work for multiple inputs
             val_loss = y_test_pred - train_data.targs[t_cfg.train_size:]
-            logger.info(f"Epoch {e_i:d}, train loss: {epoch_losses[e_i]:3.3f}, val loss: {np.mean(np.abs(val_loss))}.")
+            logger.info(f"Epoch {e_i:d}, train loss: {epoch_losses[e_i]:3.3f}, val loss: {np.nanmean(np.abs(val_loss))}.")
             y_train_pred = predict(net, train_data,
                                    t_cfg.train_size, t_cfg.batch_size, t_cfg.T,
                                    on_train=True)
