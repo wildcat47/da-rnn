@@ -44,7 +44,7 @@ class Encoder(nn.Module):
             print(type(input_data))
             print(hidden.shape)
             print(cell.shape)
-            print(input_data.shape)\
+            print(input_data.shape)
             print(hidden)
             print(cell)
             print(input_data)
