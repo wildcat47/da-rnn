@@ -38,12 +38,16 @@ class Encoder(nn.Module):
 
         for t in range(self.T - 1):
             # Eqn. 8: concatenate the hidden states with each predictor
+            print(self.input_size)
             print(type(hidden))
             print(type(cell))
             print(type(input_data))
             print(hidden.shape)
             print(cell.shape)
-            print(input_data.shape)
+            print(input_data.shape)\
+            print(hidden)
+            print(cell)
+            print(input_data)
 
             print(hidden.repeat(self.input_size, 1, 1).permute(1, 0, 2).shape)
             print(cell.repeat(self.input_size, 1, 1).permute(1, 0, 2).shape)
