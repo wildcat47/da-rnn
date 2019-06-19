@@ -42,7 +42,7 @@ def da_rnn(train_data: TrainData, n_targs: int, encoder_hidden_size=64, decoder_
 
     enc_kwargs = {"input_size": train_data.feats.shape[1], "hidden_size": encoder_hidden_size, "T": T}
     encoder = Encoder(**enc_kwargs).to(device)
-    print(os.getcwd())
+    # print(os.getcwd())
     with open(os.getcwd()+"/Data/"+"enc_kwargs.json", "w") as fi:
         json.dump(enc_kwargs, fi, indent=4)
 
