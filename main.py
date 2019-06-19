@@ -104,15 +104,15 @@ def train(net: DaRnnNet, train_data: TrainData, t_cfg: TrainConfig, n_epochs=10,
             y_train_pred = predict(net, train_data,
                                    t_cfg.train_size, t_cfg.batch_size, t_cfg.T,
                                    on_train=True)
-            plt.figure()
-            plt.plot(range(1, 1 + len(train_data.targs)), train_data.targs,
-                     label="True")
-            plt.plot(range(t_cfg.T, len(y_train_pred) + t_cfg.T), y_train_pred,
-                     label='Predicted - Train')
-            plt.plot(range(t_cfg.T + len(y_train_pred), len(train_data.targs) + 1), y_test_pred,
-                     label='Predicted - Test')
-            plt.legend(loc='upper left')
-            save_or_show_plot(f"pred_{e_i}.png", save_plots)
+            # plt.figure()
+            # plt.plot(range(1, 1 + len(train_data.targs)), train_data.targs,
+            #          label="True")
+            # plt.plot(range(t_cfg.T, len(y_train_pred) + t_cfg.T), y_train_pred,
+            #          label='Predicted - Train')
+            # plt.plot(range(t_cfg.T + len(y_train_pred), len(train_data.targs) + 1), y_test_pred,
+            #          label='Predicted - Test')
+            # plt.legend(loc='upper left')
+            # save_or_show_plot(f"pred_{e_i}.png", save_plots)
 
     return iter_losses, epoch_losses
 
